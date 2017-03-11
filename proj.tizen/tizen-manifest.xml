@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<manifest xmlns="http://tizen.org/ns/packages" api-version="2.3" package="com.Michael.twentyFourtyEight" version="1.0.0">
+    <ui-application appid="com.Michael.twentyFourtyEight" exec="hellocpp" multiple="false" nodisplay="false" taskmanage="true" type="capp">
+        <label>towOfour8</label>
+        <icon>towOfour8.png</icon>
+    </ui-application>
+</manifest>
