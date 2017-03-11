@@ -46,6 +46,22 @@ bool HelloWorld::init(){
     background->addChild(cardsBg);
     createCards();
     
+    auto *downMask = LayerColor::create(Color4B(255, 252, 235, 255), visibleSize.width, visibleSize.width / 4);
+    downMask->setPosition(0, cardsBg->getPosition().y - visibleSize.width / 4);
+    background->addChild(downMask);
+    
+    auto *leftMask = LayerColor::create(Color4B(255, 252, 235, 255), 10, visibleSize.width);
+    leftMask->setPosition(0, cardsBg->getPosition().y);
+    background->addChild(leftMask);
+    
+    auto *rightMask = LayerColor::create(Color4B(255, 252, 235, 255), 10, visibleSize.width);
+    rightMask->setPosition(visibleSize.width - 10, cardsBg->getPosition().y);
+    background->addChild(rightMask);
+
+    auto *upMask = LayerColor::create(Color4B(255, 252, 235, 255), visibleSize.width, visibleSize.width / 4);
+    upMask->setPosition(0, cardsBg->getPosition().y + cardsBg->getContentSize().width);
+    background->addChild(upMask);
+    
     auto *listener = EventListenerTouchOneByOne::create();
     listener->onTouchBegan = CC_CALLBACK_2(HelloWorld::onTouchBegan, this);
     listener->onTouchMoved = CC_CALLBACK_2(HelloWorld::onTouchMoved, this);
@@ -64,6 +80,7 @@ void HelloWorld::restart(cocos2d::Ref *sender){
         }
     }
     createCards();
+    curSb->setScore(0);
 }
 
 void HelloWorld::createCards(){
